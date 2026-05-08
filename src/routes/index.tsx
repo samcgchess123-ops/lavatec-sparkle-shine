@@ -1,26 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import WhyUs from "@/components/WhyUs";
+import Gallery from "@/components/Gallery";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "LAVATEC — Lavado en Seco & Limpieza de Muebles en Barranquilla" },
+      {
+        name: "description",
+        content:
+          "Servicio profesional de limpieza y desinfección profunda a domicilio en Barranquilla. Muebles, colchones, vehículos y más. +30 años de experiencia.",
+      },
+      { property: "og:title", content: "LAVATEC — Especialistas en Limpieza de Muebles" },
+      {
+        property: "og:description",
+        content:
+          "Recuperamos la vida de tus muebles y vehículos. Limpieza profesional a domicilio en Barranquilla.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <Services />
+      <WhyUs />
+      <Gallery />
+      <ContactForm />
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
