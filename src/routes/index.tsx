@@ -6,6 +6,7 @@ import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
