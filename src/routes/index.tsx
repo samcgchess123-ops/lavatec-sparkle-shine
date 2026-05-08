@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
 import ContactForm from "@/components/ContactForm";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
