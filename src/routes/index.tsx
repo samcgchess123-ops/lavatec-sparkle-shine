@@ -38,6 +38,7 @@ function Index() {
       <Gallery />
       <ContactForm />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
