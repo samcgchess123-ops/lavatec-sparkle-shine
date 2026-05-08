@@ -11,10 +11,9 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chatea por WhatsApp"
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center"
-      style={{ backgroundColor: "#25D366" }}
+      className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl shadow-lg hover:scale-110 transition-transform flex items-center justify-center overflow-hidden"
     >
-      <img src={whatsappLogo} alt="WhatsApp" width={38} height={38} />
+      <img src={whatsappLogo} alt="WhatsApp" className="w-full h-full object-cover" />
     </a>
   );
 }
