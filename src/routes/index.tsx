@@ -37,6 +37,7 @@ function Index() {
       <Services />
       <WhyUs />
       <Gallery />
+      <FAQ />
       <ContactForm />
       <Footer />
       <WhatsAppButton />
