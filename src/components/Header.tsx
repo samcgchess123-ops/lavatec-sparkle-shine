@@ -14,12 +14,14 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 h-16">
-        <a href="#inicio" className="text-xl font-bold tracking-tight text-gradient">
+      <div className="max-w-7xl mx-auto px-4 h-16 grid grid-cols-3 items-center">
+        {/* Logo - left */}
+        <a href="#inicio" className="text-xl font-bold tracking-tight text-gradient justify-self-start">
           LAVATEC
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop nav - center */}
+        <nav className="hidden md:flex items-center justify-center gap-8">
           {links.map((l) => (
             <a
               key={l.href}
@@ -31,18 +33,29 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        {/* Desktop CTA - right */}
+        <div className="hidden md:flex justify-self-end">
           <Button variant="cta" size="lg" asChild>
-            <a href="tel:+573001234567">
+            <a href="tel:+573046571420">
               <Phone size={16} />
               Llamar Ahora
             </a>
           </Button>
         </div>
 
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile - right side: phone + menu */}
+        <div className="md:hidden col-start-3 flex items-center justify-end gap-3">
+          <a
+            href="tel:+573046571420"
+            className="flex items-center gap-1.5 bg-primary text-primary-foreground rounded-full px-3 py-1.5 text-xs font-bold shadow-lg"
+          >
+            <Phone size={14} />
+            Llamar
+          </a>
+          <button className="text-foreground" onClick={() => setOpen(!open)}>
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -57,12 +70,6 @@ export default function Header() {
               {l.label}
             </a>
           ))}
-          <Button variant="cta" size="default" className="w-full" asChild>
-            <a href="tel:+573001234567">
-              <Phone size={16} />
-              Llamar Ahora
-            </a>
-          </Button>
         </div>
       )}
     </header>
