@@ -35,7 +35,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 h-18 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-4">
         <Logo />
 
         <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
