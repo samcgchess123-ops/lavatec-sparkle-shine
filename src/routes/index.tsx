@@ -1,28 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
-import Header from "@/components/Header";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
+import HealthSection from "@/components/HealthSection";
 import Services from "@/components/Services";
-import WhyUs from "@/components/WhyUs";
 import Gallery from "@/components/Gallery";
-import ContactForm from "@/components/ContactForm";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import Commitment from "@/components/Commitment";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LAVATEC — Lavado en Seco & Limpieza de Muebles en Barranquilla" },
+      { title: "LAVATEC — Un hogar más limpio, una vida más sana" },
       {
         name: "description",
         content:
-          "Servicio profesional de limpieza y desinfección profunda a domicilio en Barranquilla. Muebles, colchones, vehículos y más. +30 años de experiencia.",
+          "Limpieza profunda y desinfección profesional de muebles, colchones y vehículos a domicilio en Barranquilla. +30 años cuidando tu salud.",
       },
-      { property: "og:title", content: "LAVATEC — Especialistas en Limpieza de Muebles" },
+      { property: "og:title", content: "LAVATEC — Limpieza Premium en Barranquilla" },
       {
         property: "og:description",
         content:
-          "Recuperamos la vida de tus muebles y vehículos. Limpieza profesional a domicilio en Barranquilla.",
+          "Un hogar más limpio, una vida más sana. Servicio profesional a domicilio.",
       },
     ],
   }),
@@ -31,16 +28,40 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
       <Hero />
-      <Services />
-      <WhyUs />
+      <HealthSection />
+      <Services compact />
       <Gallery />
-      <FAQ />
-      <ContactForm />
-      <Footer />
-      <WhatsAppButton />
-    </div>
+      <Commitment />
+      <FinalCTA />
+    </>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="py-20 md:py-28 bg-background">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="rounded-3xl bg-gradient-to-br from-primary via-primary to-cyan-accent p-10 md:p-16 text-center premium-shadow relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
+          <div className="relative">
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground leading-tight mb-5">
+              ¿Listo para un hogar más sano?
+            </h2>
+            <p className="text-primary-foreground/80 text-base md:text-lg max-w-xl mx-auto mb-8">
+              Agenda tu servicio hoy y descubre la diferencia de una limpieza profesional.
+            </p>
+            <Link
+              to="/agendar"
+              className="inline-flex items-center gap-2 bg-background text-foreground rounded-full px-8 py-4 text-sm font-semibold shadow-xl hover:scale-[1.03] transition-all"
+            >
+              Agendar mi limpieza
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

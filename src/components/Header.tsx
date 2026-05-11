@@ -1,74 +1,88 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, Menu, X } from "lucide-react";
+import Logo from "./Logo";
+
+const links = [
+  { label: "Inicio", to: "/" as const },
+  { label: "Servicios", to: "/servicios" as const },
+  { label: "Proceso", to: "/proceso" as const },
+  { label: "Nosotros", to: "/nosotros" as const },
+  { label: "Agendar", to: "/agendar" as const },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const links = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Servicios", href: "#servicios" },
-    { label: "Proceso", href: "#proceso" },
-    { label: "Agendar", href: "#contacto" },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 h-16 grid grid-cols-3 items-center">
-        {/* Logo - left */}
-        <a href="#inicio" className="text-xl font-bold tracking-tight text-gradient justify-self-start">
-          LAVATEC
-        </a>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <Logo />
 
-        {/* Desktop nav - center */}
-        <nav className="hidden md:flex items-center justify-center gap-8">
+        <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            <Link
+              key={l.to}
+              to={l.to}
+              className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary rounded-full transition-colors"
+              activeProps={{ className: "text-primary bg-primary/10" }}
+              activeOptions={{ exact: true }}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA - right */}
-        <div className="hidden md:flex justify-self-end">
-          <Button variant="cta" size="lg" asChild>
-            <a href="tel:+573046571420">
-              <Phone size={16} />
-              Llamar Ahora
-            </a>
-          </Button>
-        </div>
-
-        {/* Mobile - right side: phone + menu */}
-        <div className="md:hidden col-start-3 flex items-center justify-end gap-3">
+        <div className="flex items-center gap-2">
           <a
             href="tel:+573046571420"
-            className="flex items-center gap-1.5 bg-primary text-primary-foreground rounded-full px-3 py-1.5 text-xs font-bold shadow-lg"
+            className="hidden sm:inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-4 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg hover:scale-[1.03] transition-all"
           >
-            <Phone size={14} />
-            Llamar
+            <Phone size={15} />
+            <span className="hidden md:inline">Llamar Ahora</span>
+            <span className="md:hidden">Llamar</span>
           </a>
-          <button className="text-foreground" onClick={() => setOpen(!open)}>
-            {open ? <X size={24} /> : <Menu size={24} />}
+          <button
+            className="lg:hidden p-2 text-foreground rounded-md hover:bg-muted transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label="Menú"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4 space-y-3">
+        <div className="lg:hidden bg-background border-t border-border px-5 py-4 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-muted-foreground hover:text-primary"
+            <Link
+              key={l.to}
+              to={l.to}
+              className="block px-4 py-3 text-sm font-medium text-foreground/80 rounded-lg hover:bg-muted transition-colors"
+              activeProps={{ className: "text-primary bg-primary/10" }}
+              activeOptions={{ exact: true }}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
