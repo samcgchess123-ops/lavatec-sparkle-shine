@@ -14,6 +14,7 @@ import { Route as ProcesoRouteImport } from './routes/proceso'
 import { Route as NosotrosRouteImport } from './routes/nosotros'
 import { Route as AgendarRouteImport } from './routes/agendar'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 
 const ServiciosRoute = ServiciosRouteImport.update({
   id: '/servicios',
@@ -40,6 +41,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/nosotros': typeof NosotrosRoute
   '/proceso': typeof ProcesoRoute
   '/servicios': typeof ServiciosRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/nosotros': typeof NosotrosRoute
   '/proceso': typeof ProcesoRoute
   '/servicios': typeof ServiciosRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,27 @@ export interface FileRoutesById {
   '/nosotros': typeof NosotrosRoute
   '/proceso': typeof ProcesoRoute
   '/servicios': typeof ServiciosRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/agendar' | '/nosotros' | '/proceso' | '/servicios'
+  fullPaths:
+    | '/'
+    | '/agendar'
+    | '/nosotros'
+    | '/proceso'
+    | '/servicios'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agendar' | '/nosotros' | '/proceso' | '/servicios'
-  id: '__root__' | '/' | '/agendar' | '/nosotros' | '/proceso' | '/servicios'
+  to: '/' | '/agendar' | '/nosotros' | '/proceso' | '/servicios' | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/agendar'
+    | '/nosotros'
+    | '/proceso'
+    | '/servicios'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +99,7 @@ export interface RootRouteChildren {
   NosotrosRoute: typeof NosotrosRoute
   ProcesoRoute: typeof ProcesoRoute
   ServiciosRoute: typeof ServiciosRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +139,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,7 +155,18 @@ const rootRouteChildren: RootRouteChildren = {
   NosotrosRoute: NosotrosRoute,
   ProcesoRoute: ProcesoRoute,
   ServiciosRoute: ServiciosRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
