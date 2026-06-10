@@ -20,7 +20,7 @@ export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const post = posts.find((p) => p.slug === params.slug);
     if (!post) throw notFound();
-    return { post };
+    return { post } as { post: (typeof posts)[number] };
   },
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center px-6">
