@@ -1,25 +1,29 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
 import Hero from "@/components/Hero";
 import HealthSection from "@/components/HealthSection";
 import Services from "@/components/Services";
+import BusinessServices from "@/components/BusinessServices";
 import Gallery from "@/components/Gallery";
 import Commitment from "@/components/Commitment";
+import Guarantee from "@/components/Guarantee";
+import BlogPreview from "@/components/BlogPreview";
+import { whatsappLink } from "@/lib/services-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LAVATEC — Un hogar más limpio, una vida más sana" },
+      { title: "LAVATEC — Higienización profunda con vapor profesional" },
       {
         name: "description",
         content:
-          "Limpieza profunda y desinfección profesional de muebles, colchones y vehículos a domicilio en Barranquilla. +30 años cuidando tu salud.",
+          "Especialistas en limpieza profunda e higienización con vapor de muebles, alfombras, cortinas, colchones, tapizados y camas para mascotas. Más de 12 años de experiencia.",
       },
-      { property: "og:title", content: "LAVATEC — Limpieza Premium en Barranquilla" },
+      { property: "og:title", content: "LAVATEC — Limpieza Premium con Vapor" },
       {
         property: "og:description",
         content:
-          "Un hogar más limpio, una vida más sana. Servicio profesional a domicilio.",
+          "Higienización profunda con vapor profesional. Cuidamos tu hogar y a tus mascotas.",
       },
     ],
   }),
@@ -32,8 +36,11 @@ function Index() {
       <Hero />
       <HealthSection />
       <Services compact />
+      <BusinessServices />
       <Gallery />
       <Commitment />
+      <Guarantee />
+      <BlogPreview />
       <FinalCTA />
     </>
   );
@@ -50,15 +57,17 @@ function FinalCTA() {
               ¿Listo para un hogar más sano?
             </h2>
             <p className="text-primary-foreground/80 text-base md:text-lg max-w-xl mx-auto mb-8">
-              Agenda tu servicio hoy y descubre la diferencia de una limpieza profesional.
+              Higieniza tus muebles, colchones y textiles con vapor profesional.
             </p>
-            <Link
-              to="/agendar"
-              className="inline-flex items-center gap-2 bg-background text-foreground rounded-full px-8 py-4 text-sm font-semibold shadow-xl hover:scale-[1.03] transition-all"
+            <a
+              href={whatsappLink("Hola Lavatec, quiero agendar un servicio de limpieza.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground rounded-full px-8 py-4 text-sm font-semibold shadow-xl hover:scale-[1.03] transition-all"
             >
-              Agendar mi limpieza
-              <ArrowRight size={16} />
-            </Link>
+              <MessageCircle size={16} />
+              CONTACTANOS
+            </a>
           </div>
         </div>
       </div>
