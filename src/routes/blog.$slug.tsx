@@ -66,7 +66,7 @@ function BlogPost() {
         </p>
 
         <div className="space-y-10">
-          {post.sections.map((s) => (
+          {post.sections.map((s: { heading: string; body: string; bullets?: string[] }) => (
             <section key={s.heading}>
               <h2 className="font-display text-2xl font-semibold text-foreground mb-4">
                 {s.heading}
@@ -74,7 +74,7 @@ function BlogPost() {
               <p className="text-foreground/80 leading-relaxed mb-4">{s.body}</p>
               {s.bullets && (
                 <ul className="space-y-2 pl-1">
-                  {s.bullets.map((b) => (
+                  {s.bullets.map((b: string) => (
                     <li key={b} className="flex gap-3 text-foreground/75 leading-relaxed">
                       <span className="text-accent font-bold">·</span>
                       <span>{b}</span>
