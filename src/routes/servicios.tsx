@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
+import Guarantee from "@/components/Guarantee";
 import FAQ from "@/components/FAQ";
 
 export const Route = createFileRoute("/servicios")({
@@ -10,12 +11,12 @@ export const Route = createFileRoute("/servicios")({
       {
         name: "description",
         content:
-          "Limpieza profunda de muebles, colchones, alfombras, cortinas y vehículos. Servicio profesional a domicilio en Barranquilla.",
+          "Limpieza profunda con vapor de muebles, colchones, alfombras, cortinas, tapizados y camas para mascotas.",
       },
       { property: "og:title", content: "Servicios — LAVATEC" },
       {
         property: "og:description",
-        content: "Soluciones premium de limpieza profesional para tu hogar y vehículo.",
+        content: "Higienización premium con vapor profesional para tu hogar.",
       },
     ],
   }),
@@ -27,11 +28,12 @@ function ServiciosPage() {
     <>
       <PageHero
         eyebrow="Servicios"
-        title="Limpieza profesional para cada"
+        title="Higienización profunda para cada"
         highlight="rincón"
-        description="Cubrimos todo lo que tu hogar y vehículo necesitan, con productos seguros y técnicas profesionales."
+        description="Toca cada servicio para ver detalles, proceso, beneficios y precios."
       />
       <Services compact />
+      <Guarantee />
       <FAQ />
     </>
   );
