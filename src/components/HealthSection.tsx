@@ -12,13 +12,13 @@ const stats = [
     icon: Sparkles,
     value: "+200",
     label: "tipos de partículas",
-    desc: "se acumulan en muebles y colchones sin una desinfección regular.",
+    desc: "se acumulan en muebles, alfombras, tapizados y colchones sin higienización regular.",
   },
   {
     icon: HeartPulse,
     value: "100%",
     label: "respirable",
-    desc: "una limpieza profunda ayuda a crear espacios más saludables.",
+    desc: "una limpieza profunda con vapor ayuda a crear espacios más saludables.",
   },
 ];
 
@@ -27,7 +27,6 @@ export default function HealthSection() {
     <section className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* Image */}
           <div className="relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden premium-shadow">
               <img
@@ -41,18 +40,17 @@ export default function HealthSection() {
             </div>
             <div className="hidden md:block absolute -bottom-8 -right-8 bg-card border border-border rounded-2xl p-5 max-w-[220px] premium-shadow">
               <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-2 h-2 rounded-full bg-leaf animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Aire más puro
+                  Vapor sanitizante
                 </span>
               </div>
               <p className="text-sm text-foreground leading-snug">
-                Reducimos ácaros, polvo y alérgenos invisibles.
+                Penetra las fibras y elimina ácaros, bacterias y alérgenos invisibles.
               </p>
             </div>
           </div>
 
-          {/* Content */}
           <div className="order-1 lg:order-2">
             <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-5">
               Salud & Bienestar
@@ -62,10 +60,14 @@ export default function HealthSection() {
               <br />
               <span className="italic text-gradient">también afecta tu salud.</span>
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-              Sofás, colchones y tapicerías acumulan ácaros, bacterias, polvo y alérgenos que
-              pueden afectar tu descanso y bienestar respiratorio. Una limpieza profunda
-              regular crea un ambiente más sano para ti y tu familia.
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 max-w-xl">
+              Muebles, alfombras, tapizados y colchones acumulan ácaros, bacterias, polvo y
+              alérgenos que pueden afectar tu descanso y bienestar respiratorio.
+            </p>
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed mb-10 max-w-xl border-l-2 border-accent pl-4 italic">
+              Nuestro sistema de limpieza con vapor penetra profundamente en las fibras
+              textiles ayudando a remover manchas difíciles, suciedad acumulada, malos olores
+              y alérgenos, mientras sanitiza la superficie tratada.
             </p>
 
             <div className="space-y-5">

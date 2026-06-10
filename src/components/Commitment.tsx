@@ -1,12 +1,12 @@
-import { Link } from "@tanstack/react-router";
-import { Heart, Leaf, ShieldCheck, Users } from "lucide-react";
+import { Heart, Leaf, ShieldCheck, Users, MessageCircle } from "lucide-react";
 import familyImg from "@/assets/commitment-family.jpg";
+import { whatsappLink } from "@/lib/services-data";
 
 const values = [
   { icon: Heart, label: "Cuidado de tu familia", desc: "Tratamos cada hogar como si fuera el nuestro." },
-  { icon: Leaf, label: "Productos eco-friendly", desc: "Seguros para niños, mascotas y el planeta." },
-  { icon: ShieldCheck, label: "Garantía total", desc: "Si no quedas conforme, lo corregimos sin costo." },
-  { icon: Users, label: "+30 años de experiencia", desc: "Miles de familias en Barranquilla confían en nosotros." },
+  { icon: Leaf, label: "Higiene con vapor", desc: "Sin químicos agresivos. Seguro para niños y mascotas." },
+  { icon: ShieldCheck, label: "Procesos profesionales", desc: "Resultados consistentes con altos estándares." },
+  { icon: Users, label: "+12 años de experiencia", desc: "Cientos de familias confían en nosotros." },
 ];
 
 export default function Commitment() {
@@ -21,14 +21,13 @@ export default function Commitment() {
               Nuestro Compromiso
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-6">
-              Ayudamos a las familias a vivir en
+              Cuidamos tu hogar con
               <br />
-              <span className="italic text-accent">espacios más sanos.</span>
+              <span className="italic text-accent">experiencia comprobada.</span>
             </h2>
             <p className="text-background/75 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-              No solo limpiamos: cuidamos la salud, el bienestar y la tranquilidad de quienes
-              confían en nosotros. Cada servicio es una promesa de excelencia y respeto por
-              tu hogar.
+              Más de 12 años higienizando hogares con vapor profesional. Cada servicio es una
+              promesa de calidad, confianza y bienestar para quienes habitan tu espacio.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-5 mb-10">
@@ -45,12 +44,15 @@ export default function Commitment() {
               ))}
             </div>
 
-            <Link
-              to="/agendar"
+            <a
+              href={whatsappLink("Hola Lavatec, me gustaría más información sobre sus servicios.")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground rounded-full px-7 py-4 text-sm font-semibold shadow-xl hover:scale-[1.03] transition-all"
             >
-              Agendar mi servicio
-            </Link>
+              <MessageCircle size={16} />
+              Escríbenos por WhatsApp
+            </a>
           </div>
 
           <div className="relative">
@@ -66,10 +68,10 @@ export default function Commitment() {
             </div>
             <div className="hidden md:block absolute -top-6 -left-6 glass rounded-2xl p-5 max-w-[200px]">
               <p className="font-display text-2xl font-bold text-foreground leading-none">
-                +30
+                +12
               </p>
               <p className="text-xs text-muted-foreground mt-1.5">
-                Años transformando hogares en Barranquilla
+                Años higienizando hogares con vapor profesional
               </p>
             </div>
           </div>

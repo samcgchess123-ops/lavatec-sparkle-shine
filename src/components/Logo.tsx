@@ -1,15 +1,15 @@
-import logo from "@/assets/lavatec-logo.png";
+import logoAsset from "@/assets/lavatec-logo-new.png.asset.json";
 import { Link } from "@tanstack/react-router";
 
 export default function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
   return (
     <Link to="/" className="flex items-center gap-2.5 group" aria-label="LAVATEC inicio">
       <img
-        src={logo}
+        src={logoAsset.url}
         alt="LAVATEC"
-        width={36}
-        height={36}
-        className="w-9 h-9 rounded-lg object-contain bg-white p-0.5 shadow-sm group-hover:scale-105 transition-transform"
+        width={40}
+        height={40}
+        className="w-10 h-10 rounded-lg object-contain bg-white p-0.5 shadow-sm ring-1 ring-border group-hover:scale-105 transition-transform"
       />
       <div className="flex flex-col leading-none">
         <span
@@ -24,7 +24,7 @@ export default function Logo({ variant = "dark" }: { variant?: "dark" | "light" 
             variant === "light" ? "text-background/60" : "text-muted-foreground"
           }`}
         >
-          Limpieza Premium
+          Limpieza con Vapor
         </span>
       </div>
     </Link>

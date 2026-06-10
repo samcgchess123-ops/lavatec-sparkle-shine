@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
+import { Sparkles, ShieldCheck, ArrowRight, Droplets } from "lucide-react";
 import heroBg from "@/assets/hero-premium.jpg";
 
 export default function Hero() {
@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <img
         src={heroBg}
-        alt="Sala con sofá limpio y luz natural"
+        alt="Hogar limpio e higienizado con vapor profesional"
         className="absolute inset-0 w-full h-full object-cover scale-105"
         width={1920}
         height={1080}
@@ -19,23 +19,32 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium text-background/90 mb-7 reveal">
             <Sparkles size={13} className="text-accent" />
-            Más de 30 años cuidando hogares en Barranquilla
+            Más de 12 años de experiencia
           </div>
           <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl font-bold leading-[1.05] text-background mb-6 reveal reveal-delay-1">
-            Un hogar más limpio,
+            Higienización profunda
             <br />
-            <span className="italic text-accent">una vida más sana.</span>
+            <span className="italic text-accent">con vapor profesional.</span>
           </h1>
-          <p className="text-base md:text-xl text-background/85 mb-10 max-w-xl leading-relaxed reveal reveal-delay-2">
-            Limpieza profunda y desinfección profesional de muebles, colchones y vehículos.
-            Eliminamos lo invisible para que respires tranquilo.
+          <p className="text-base md:text-xl text-background/85 mb-8 max-w-xl leading-relaxed reveal reveal-delay-2">
+            Especialistas en limpieza profunda de muebles, alfombras, cortinas, colchones,
+            tapizados y camas para mascotas. Eliminamos manchas, malos olores y alérgenos
+            mientras cuidamos las fibras de cada superficie.
           </p>
+
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-2 mb-10 max-w-md text-sm text-background/85 reveal reveal-delay-2">
+            <li className="flex items-center gap-2"><Droplets size={14} className="text-accent" /> Vapor sanitizante</li>
+            <li className="flex items-center gap-2"><Sparkles size={14} className="text-accent" /> Elimina manchas y olores</li>
+            <li className="flex items-center gap-2"><ShieldCheck size={14} className="text-accent" /> Seguro para niños y mascotas</li>
+            <li className="flex items-center gap-2"><Sparkles size={14} className="text-accent" /> Cuida las fibras</li>
+          </ul>
+
           <div className="flex flex-col sm:flex-row gap-3 reveal reveal-delay-3">
             <Link
               to="/agendar"
               className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-full px-7 py-4 text-sm font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all"
             >
-              Agendar mi limpieza
+              Agendar mi servicio
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
@@ -44,15 +53,6 @@ export default function Hero() {
             >
               Ver servicios
             </Link>
-          </div>
-
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-background/80 text-sm reveal reveal-delay-4">
-            <span className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-accent" /> Garantía de satisfacción
-            </span>
-            <span className="flex items-center gap-2">
-              <Sparkles size={16} className="text-accent" /> Productos eco-friendly
-            </span>
           </div>
         </div>
       </div>
