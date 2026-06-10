@@ -6,7 +6,8 @@ import Logo from "./Logo";
 const links = [
   { label: "Inicio", to: "/" as const },
   { label: "Servicios", to: "/servicios" as const },
-  { label: "Proceso", to: "/proceso" as const },
+  { label: "Empresarial", to: "/empresarial" as const },
+  { label: "Blog", to: "/blog" as const },
   { label: "Nosotros", to: "/nosotros" as const },
   { label: "Agendar", to: "/agendar" as const },
 ];
