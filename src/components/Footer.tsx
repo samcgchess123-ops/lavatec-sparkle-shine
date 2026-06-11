@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from "lucide-react";
-import logo from "@/assets/lavatec-logo.png";
+import logoAsset from "@/assets/lavatec-logo-new.png.asset.json";
 
 export default function Footer() {
   return (
@@ -11,23 +11,18 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
               <img
-                src={logo}
+                src={logoAsset.url}
                 alt="LAVATEC"
                 width={44}
                 height={44}
-                className="w-11 h-11 rounded-xl bg-white p-1"
+                className="h-11 w-auto object-contain"
               />
-              <div className="leading-none">
-                <p className="font-display text-2xl font-bold text-background">LAVATEC</p>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-background/50 mt-1">
-                  Limpieza Premium
-                </p>
-              </div>
+              <p className="font-display text-2xl font-bold text-background">LAVATEC</p>
             </div>
             <p className="text-sm text-background/65 leading-relaxed max-w-md">
-              Especialistas en lavado en seco y limpieza profunda a domicilio. +30 años
-              cuidando hogares y familias en Barranquilla con resultados impecables y un
-              compromiso real con tu bienestar.
+              Especialistas en higienización profunda con vapor profesional. Más de 12 años
+              de experiencia cuidando hogares y familias en Barranquilla con resultados
+              impecables y un compromiso real con tu bienestar.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
@@ -107,11 +102,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="pt-6 flex items-center justify-center">
           <p className="text-xs text-background/40">
             © {new Date().getFullYear()} LAVATEC — Todos los derechos reservados
           </p>
-          <p className="text-xs text-background/30">Diseñado por Samuel Pinto</p>
         </div>
       </div>
     </footer>

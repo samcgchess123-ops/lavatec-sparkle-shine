@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 
 export const Route = createFileRoute("/agendar")({
   head: () => ({
@@ -33,6 +34,7 @@ function AgendarPage() {
       />
       <ContactForm />
       <FAQ />
+      <FinalCTA />
     </>
   );
 }

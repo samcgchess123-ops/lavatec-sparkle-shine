@@ -1,5 +1,6 @@
 import { Heart, Leaf, ShieldCheck, Users, MessageCircle } from "lucide-react";
-import familyImg from "@/assets/commitment-family.jpg";
+import familyAsset from "@/assets/commitment-family-new.jpg.asset.json";
+const familyImg = familyAsset.url;
 import { whatsappLink } from "@/lib/services-data";
 
 const values = [

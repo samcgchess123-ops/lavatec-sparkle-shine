@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import Commitment from "@/components/Commitment";
 import HealthSection from "@/components/HealthSection";
+import FinalCTA from "@/components/FinalCTA";
 
 export const Route = createFileRoute("/nosotros")({
   head: () => ({
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/nosotros")({
       {
         name: "description",
         content:
-          "+30 años cuidando familias en Barranquilla. Conoce el compromiso de Lavatec con tu salud, tu hogar y tu bienestar.",
+          "Más de 12 años de experiencia cuidando familias en Barranquilla. Conoce el compromiso de Lavatec con tu salud, tu hogar y tu bienestar.",
       },
       { property: "og:title", content: "Nosotros — LAVATEC" },
       {
@@ -27,12 +28,13 @@ function NosotrosPage() {
     <>
       <PageHero
         eyebrow="Quiénes somos"
-        title="Más de 30 años cuidando"
+        title="Más de 12 años de experiencia cuidando"
         highlight="hogares"
         description="Lavatec nació para ofrecer un servicio profesional, honesto y comprometido con la salud de las familias barranquilleras."
       />
       <Commitment />
       <HealthSection />
+      <FinalCTA />
     </>
   );
 }

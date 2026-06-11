@@ -1,4 +1,8 @@
 import { BedDouble, Sofa, Layers, PawPrint } from "lucide-react";
+import mattressImg from "@/assets/blog-mattress.jpg.asset.json";
+import sofaImg from "@/assets/blog-sofa.jpg.asset.json";
+import chairsImg from "@/assets/blog-chairs.jpg.asset.json";
+import benchImg from "@/assets/blog-bench.jpg.asset.json";
 
 export type BlogPost = {
   slug: "limpiar-colchon" | "vapor-muebles" | "limpiar-alfombras" | "cama-mascotas";
@@ -7,6 +11,7 @@ export type BlogPost = {
   category: string;
   readTime: string;
   icon: typeof BedDouble;
+  image: string;
   date: string;
   sections: { heading: string; body: string; bullets?: string[] }[];
 };
@@ -20,6 +25,7 @@ export const posts: BlogPost[] = [
     category: "Colchones",
     readTime: "4 min",
     icon: BedDouble,
+    image: mattressImg.url,
     date: "Junio 2026",
     sections: [
       {
@@ -54,6 +60,7 @@ export const posts: BlogPost[] = [
     category: "Muebles",
     readTime: "5 min",
     icon: Sofa,
+    image: sofaImg.url,
     date: "Junio 2026",
     sections: [
       {
@@ -82,18 +89,19 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "limpiar-alfombras",
-    title: "¿Cada cuánto limpiar alfombras?",
+    title: "¿Cada cuánto limpiar alfombras y tapizados?",
     excerpt:
-      "Una rutina de limpieza periódica mantiene tu alfombra más higiénica, fresca y duradera.",
-    category: "Alfombras",
+      "Una rutina de limpieza periódica mantiene tus alfombras y tapizados más higiénicos, frescos y duraderos.",
+    category: "Tapizados",
     readTime: "4 min",
     icon: Layers,
+    image: chairsImg.url,
     date: "Junio 2026",
     sections: [
       {
         heading: "Por qué la frecuencia importa",
         body:
-          "Las alfombras actúan como un filtro doméstico: atrapan polvo, polen, pelo, ácaros y partículas del calzado. Sin una limpieza profunda regular, esa carga termina afectando la calidad del aire interior.",
+          "Alfombras y tapizados actúan como un filtro doméstico: atrapan polvo, polen, pelo, ácaros y partículas del calzado. Sin una limpieza profunda regular, esa carga termina afectando la calidad del aire interior.",
       },
       {
         heading: "Frecuencia recomendada",
@@ -120,6 +128,7 @@ export const posts: BlogPost[] = [
     category: "Mascotas",
     readTime: "4 min",
     icon: PawPrint,
+    image: benchImg.url,
     date: "Junio 2026",
     sections: [
       {

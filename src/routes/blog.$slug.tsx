@@ -41,8 +41,8 @@ export const Route = createFileRoute("/blog/$slug")({
 function BlogPost() {
   const { post } = Route.useLoaderData();
   return (
-    <article className="pt-36 md:pt-44 pb-24 md:pb-32 bg-background">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+    <article className="pt-28 md:pt-32 pb-24 md:pb-32 bg-background">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <Link
           to="/blog"
           className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary mb-8"
@@ -58,9 +58,19 @@ function BlogPost() {
           <span>{post.date}</span>
         </div>
 
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground leading-tight mb-6">
+        <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground leading-tight mb-8">
           {post.title}
         </h1>
+
+        <div className="rounded-3xl overflow-hidden mb-10 premium-shadow">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-auto object-cover"
+            loading="eager"
+          />
+        </div>
+
         <p className="text-lg text-muted-foreground leading-relaxed mb-12 border-l-2 border-accent pl-5 italic">
           {post.excerpt}
         </p>

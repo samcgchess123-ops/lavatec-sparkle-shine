@@ -15,18 +15,6 @@ export default function ContactForm() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">
-            Agenda tu servicio
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5">
-            Reserva tu cita en <span className="italic text-gradient">minutos</span>
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
-            Déjanos tus datos y te contactamos para confirmar tu servicio.
-          </p>
-        </div>
-
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Form */}
           <div className="lg:col-span-3 bg-card border border-border rounded-3xl p-7 md:p-10 premium-shadow">
