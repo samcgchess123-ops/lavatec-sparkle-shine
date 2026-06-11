@@ -25,9 +25,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-background/65 leading-relaxed max-w-md">
-              Especialistas en lavado en seco y limpieza profunda a domicilio. +30 años
-              cuidando hogares y familias en Barranquilla con resultados impecables y un
-              compromiso real con tu bienestar.
+              Especialistas en higienización profunda con vapor profesional. Más de 12 años
+              de experiencia cuidando hogares y familias en Barranquilla con resultados
+              impecables y un compromiso real con tu bienestar.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
@@ -107,11 +107,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="pt-6 flex items-center justify-center">
           <p className="text-xs text-background/40">
             © {new Date().getFullYear()} LAVATEC — Todos los derechos reservados
           </p>
-          <p className="text-xs text-background/30">Diseñado por Samuel Pinto</p>
         </div>
       </div>
     </footer>
