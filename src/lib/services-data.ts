@@ -135,7 +135,7 @@ export const services: ServiceDetail[] = [
   {
     id: "cortinas",
     icon: Blinds,
-    title: "Cortinas en Sitio",
+    title: "Cortinas",
     shortDesc:
       "Lavado de cortinas sin desmontar. Elimina polvo, ácaros y olores conservando la caída original.",
     description:

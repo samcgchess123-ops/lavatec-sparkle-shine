@@ -21,7 +21,7 @@ export default function Services({ compact = false }: { compact?: boolean }) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {services.map((s, i) => {
+          {services.map((s) => {
             const isOpen = open === s.id;
             return (
               <div
@@ -54,9 +54,6 @@ export default function Services({ compact = false }: { compact?: boolean }) {
                       <p className="text-sm text-muted-foreground leading-relaxed mt-2">
                         {s.shortDesc}
                       </p>
-                      <div className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/50">
-                        0{i + 1} · {s.priceFrom}
-                      </div>
                     </div>
                   </div>
                 </button>
@@ -80,20 +77,6 @@ export default function Services({ compact = false }: { compact?: boolean }) {
                           title="Recomendaciones"
                           text={s.recommendations.join(" · ")}
                         />
-                      </div>
-
-                      <div className="md:col-span-2">
-                        <h4 className="font-display text-base font-semibold text-foreground mb-3">
-                          Preguntas frecuentes
-                        </h4>
-                        <div className="space-y-3">
-                          {s.faqs.map((f) => (
-                            <div key={f.q} className="rounded-2xl border border-border bg-card p-4">
-                              <p className="text-sm font-semibold text-foreground mb-1">{f.q}</p>
-                              <p className="text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-                            </div>
-                          ))}
-                        </div>
                       </div>
 
                       <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-border">
