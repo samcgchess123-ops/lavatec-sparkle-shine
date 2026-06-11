@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from "lucide-react";
-import logo from "@/assets/lavatec-logo.png";
+import logoAsset from "@/assets/lavatec-logo-new.png.asset.json";
 
 export default function Footer() {
   return (
@@ -11,18 +11,13 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
               <img
-                src={logo}
+                src={logoAsset.url}
                 alt="LAVATEC"
                 width={44}
                 height={44}
-                className="w-11 h-11 rounded-xl bg-white p-1"
+                className="h-11 w-auto object-contain"
               />
-              <div className="leading-none">
-                <p className="font-display text-2xl font-bold text-background">LAVATEC</p>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-background/50 mt-1">
-                  Limpieza Premium
-                </p>
-              </div>
+              <p className="font-display text-2xl font-bold text-background">LAVATEC</p>
             </div>
             <p className="text-sm text-background/65 leading-relaxed max-w-md">
               Especialistas en higienización profunda con vapor profesional. Más de 12 años
