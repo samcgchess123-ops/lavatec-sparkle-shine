@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import { Building2, GraduationCap, BedDouble, ArrowRight, BadgeCheck } from "lucide-react";
+import { Building2, GraduationCap, BedDouble, MessageCircle, BadgeCheck, Star } from "lucide-react";
+import { whatsappLink } from "@/lib/services-data";
 
 const blocks = [
   {
@@ -25,18 +25,53 @@ export default function BusinessServices() {
             Servicios Empresariales
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
-            Soluciones premium para tu <span className="italic text-gradient">negocio</span>
+            Soluciones premium para tu negocio <span className="italic text-primary">Tú</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
             Mantenemos tus espacios profesionales impecables con limpieza profunda y sanitización con vapor.
           </p>
         </div>
 
+        {/* AIRBNB — Top featured block */}
+        <a
+          href={whatsappLink("Hola Lavatec, soy propietario/administrador de Airbnb y quiero información.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-3xl bg-gradient-to-br from-primary to-cyan-accent p-8 md:p-12 text-primary-foreground premium-shadow relative overflow-hidden mb-10 hover:scale-[1.005] transition-transform"
+        >
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
+          <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-6 items-center">
+            <div className="w-16 h-16 rounded-2xl bg-background/15 backdrop-blur flex items-center justify-center shrink-0">
+              <BedDouble size={30} className="text-primary-foreground" />
+            </div>
+            <div>
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-2">
+                <Star size={12} className="fill-accent" /> Servicio para Airbnb
+              </span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                Mantén el estándar premium de tu Airbnb
+              </h3>
+              <p className="text-primary-foreground/90 leading-relaxed max-w-2xl">
+                Ayudamos a propietarios y administradores de Airbnb a mejorar la experiencia
+                de sus huéspedes, conseguir mejores calificaciones y mantener muebles,
+                colchones, tapizados y textiles impecables entre cada reserva.
+              </p>
+            </div>
+            <span className="hidden md:inline-flex items-center gap-2 bg-accent text-accent-foreground rounded-full px-6 py-3 text-sm font-semibold shadow-lg">
+              <MessageCircle size={16} />
+              WhatsApp
+            </span>
+          </div>
+        </a>
+
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {blocks.map((b) => (
-            <div
+            <a
               key={b.title}
-              className="rounded-3xl border border-border bg-card p-8 md:p-10 card-hover relative overflow-hidden"
+              href={whatsappLink(`Hola Lavatec, quiero información sobre ${b.title}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-3xl border border-border bg-card p-8 md:p-10 card-hover relative overflow-hidden block"
             >
               <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/5" />
               <div className="relative">
@@ -56,34 +91,10 @@ export default function BusinessServices() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
-        {/* Airbnb block */}
-        <div className="rounded-3xl bg-gradient-to-br from-primary to-cyan-accent p-8 md:p-12 text-primary-foreground premium-shadow relative overflow-hidden mb-8">
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
-          <div className="relative grid md:grid-cols-[auto_1fr] gap-6 items-center">
-            <div className="w-16 h-16 rounded-2xl bg-background/15 backdrop-blur flex items-center justify-center shrink-0">
-              <BedDouble size={30} className="text-primary-foreground" />
-            </div>
-            <div>
-              <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-2">
-                Servicio para Airbnb
-              </span>
-              <h3 className="font-display text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                Mantén el estándar premium de tu Airbnb
-              </h3>
-              <p className="text-primary-foreground/90 leading-relaxed max-w-2xl">
-                Ayudamos a propietarios y administradores a mantener muebles, colchones,
-                tapizados y textiles impecables entre huéspedes, prolongando la vida útil y
-                mejorando la experiencia del cliente.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured message + CTA */}
         <div className="rounded-2xl border border-accent/40 bg-accent/5 px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-5 mb-8">
           <div className="flex items-center gap-3">
             <BadgeCheck size={22} className="text-accent shrink-0" />
@@ -94,13 +105,15 @@ export default function BusinessServices() {
         </div>
 
         <div className="text-center">
-          <Link
-            to="/agendar"
+          <a
+            href={whatsappLink("Hola Lavatec, quiero agendar un servicio empresarial.")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-full px-8 py-4 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all"
           >
-            AGENDA TU SERVICIO
-            <ArrowRight size={16} />
-          </Link>
+            <MessageCircle size={16} />
+            AGENDA TU SERVICIO POR WHATSAPP
+          </a>
         </div>
       </div>
     </section>
