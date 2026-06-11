@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Limpieza profunda y desinfección a domicilio en Barranquilla. Cuidamos tu hogar, tu salud y tu bienestar. +30 años de experiencia.",
+          "Limpieza profunda y desinfección a domicilio en Barranquilla. Cuidamos tu hogar, tu salud y tu bienestar. Más de 12 años de experiencia.",
       },
       { name: "author", content: "LAVATEC" },
       { property: "og:type", content: "website" },
