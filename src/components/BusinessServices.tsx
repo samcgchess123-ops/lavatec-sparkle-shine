@@ -25,7 +25,7 @@ export default function BusinessServices() {
             Servicios Empresariales
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
-            Soluciones premium para tu negocio <span className="italic text-primary">Tú</span>
+            Soluciones premium para tu <span className="italic text-primary">negocio</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
             Mantenemos tus espacios profesionales impecables con limpieza profunda y sanitización con vapor.
