@@ -37,15 +37,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-4">
-        <Logo />
+        <Logo variant={scrolled ? "dark" : "light"} />
 
         <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary rounded-full transition-colors"
-              activeProps={{ className: "text-primary bg-primary/10" }}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${scrolled ? "text-foreground/70 hover:text-primary" : "text-background/85 hover:text-background"}`}
+              activeProps={{ className: scrolled ? "text-primary bg-primary/10" : "text-background bg-background/15" }}
               activeOptions={{ exact: true }}
             >
               {l.label}
