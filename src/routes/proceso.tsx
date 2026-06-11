@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import Process from "@/components/Process";
 import Gallery from "@/components/Gallery";
+import FinalCTA from "@/components/FinalCTA";
 
 export const Route = createFileRoute("/proceso")({
   head: () => ({
@@ -33,6 +34,7 @@ function ProcesoPage() {
       />
       <Process />
       <Gallery />
+      <FinalCTA />
     </>
   );
 }

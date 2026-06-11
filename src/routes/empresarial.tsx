@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import PageHero from "@/components/PageHero";
 import BusinessServices from "@/components/BusinessServices";
 import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 
 export const Route = createFileRoute("/empresarial")({
   head: () => ({
@@ -34,6 +35,7 @@ function EmpresarialPage() {
       />
       <BusinessServices />
       <FAQ />
+      <FinalCTA />
     </>
   );
 }

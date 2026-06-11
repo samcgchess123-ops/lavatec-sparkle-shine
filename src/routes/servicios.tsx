@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import Guarantee from "@/components/Guarantee";
 import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 
 export const Route = createFileRoute("/servicios")({
   head: () => ({
@@ -35,6 +36,7 @@ function ServiciosPage() {
       <Services compact />
       <Guarantee />
       <FAQ />
+      <FinalCTA />
     </>
   );
 }
