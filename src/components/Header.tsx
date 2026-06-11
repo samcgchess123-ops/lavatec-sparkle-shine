@@ -63,7 +63,7 @@ export default function Header() {
             <span className="md:hidden">Llamar</span>
           </a>
           <button
-            className="lg:hidden p-2 text-foreground rounded-md hover:bg-muted transition-colors"
+            className={`lg:hidden p-2 rounded-md transition-colors ${scrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-background/15"}`}
             onClick={() => setOpen(!open)}
             aria-label="Menú"
           >
