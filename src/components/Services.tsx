@@ -2,23 +2,25 @@ import { useState } from "react";
 import { ChevronDown, Clock, CheckCircle2, Droplets, Sparkles, MessageCircle } from "lucide-react";
 import { services, whatsappLink } from "@/lib/services-data";
 
-export default function Services({ compact = false }: { compact?: boolean }) {
+export default function Services({ compact = false, hideHeader = false }: { compact?: boolean; hideHeader?: boolean }) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
     <section className="py-24 md:py-32 section-gradient">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">
-            Servicios para el Hogar
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5">
-            Higienización con vapor para tu <span className="italic text-gradient">bienestar</span>
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-            Toca cada servicio para ver el detalle completo: proceso, beneficios y precios.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">
+              Servicios para el Hogar
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5">
+              Higienización con vapor para tu <span className="italic text-gradient">bienestar</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Toca cada servicio para ver el detalle completo: proceso, beneficios y precios.
+            </p>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.map((s) => {

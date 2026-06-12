@@ -33,7 +33,7 @@ function EmpresarialPage() {
         highlight="negocio"
         description="Mantenemos tu mobiliario corporativo e institucional impecable con vapor profesional."
       />
-      <BusinessServices />
+      <BusinessServices hideHeader />
       <FAQ />
       <FinalCTA />
     </>
