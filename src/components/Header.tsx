@@ -16,6 +16,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === "/";
+  // Only home has a dark hero behind the header; other pages have a light hero
+  const useDarkText = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -31,21 +34,21 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-sm"
+        scrolled || !isHome
+          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-4">
-        <Logo variant={scrolled ? "dark" : "light"} />
+        <Logo variant={useDarkText ? "dark" : "light"} />
 
         <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${scrolled ? "text-foreground/70 hover:text-primary" : "text-background/85 hover:text-background"}`}
-              activeProps={{ className: scrolled ? "text-primary bg-primary/10" : "text-background bg-background/15" }}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${useDarkText ? "text-foreground/70 hover:text-primary" : "text-background/85 hover:text-background"}`}
+              activeProps={{ className: useDarkText ? "text-primary bg-primary/10" : "text-background bg-background/15" }}
               activeOptions={{ exact: true }}
             >
               {l.label}
@@ -63,7 +66,7 @@ export default function Header() {
             <span className="md:hidden">Llamar</span>
           </a>
           <button
-            className={`lg:hidden p-2 rounded-md transition-colors ${scrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-background/15"}`}
+            className={`lg:hidden p-2 rounded-md transition-colors ${useDarkText ? "text-foreground hover:bg-muted" : "text-background hover:bg-background/15"}`}
             onClick={() => setOpen(!open)}
             aria-label="Menú"
           >

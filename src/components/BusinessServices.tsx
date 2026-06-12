@@ -16,21 +16,23 @@ const blocks = [
   },
 ];
 
-export default function BusinessServices() {
+export default function BusinessServices({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">
-            Servicios Empresariales
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
-            Soluciones premium para tu <span className="italic text-primary">negocio</span>
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
-            Mantenemos tus espacios profesionales impecables con limpieza profunda y sanitización con vapor.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">
+              Servicios Empresariales
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
+              Soluciones premium para tu <span className="italic text-primary">negocio</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg">
+              Mantenemos tus espacios profesionales impecables con limpieza profunda y sanitización con vapor.
+            </p>
+          </div>
+        )}
 
         {/* AIRBNB — Top featured block */}
         <a

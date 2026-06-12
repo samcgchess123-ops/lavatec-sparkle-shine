@@ -33,7 +33,7 @@ function ServiciosPage() {
         highlight="rincón"
         description="Toca cada servicio para ver detalles, proceso, beneficios y precios."
       />
-      <Services compact />
+      <Services compact hideHeader />
       <Guarantee />
       <FAQ />
       <FinalCTA />
