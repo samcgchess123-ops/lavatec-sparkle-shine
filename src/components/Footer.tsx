@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from "lucide-react";
-import logoAsset from "@/assets/lavatec-logo-new.png.asset.json";
+import logoAsset from "@/assets/lavatec-logo-transparent.png.asset.json";
 
 export default function Footer() {
   return (
