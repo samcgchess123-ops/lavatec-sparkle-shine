@@ -6,6 +6,7 @@ import BusinessServices from "@/components/BusinessServices";
 import Gallery from "@/components/Gallery";
 import Commitment from "@/components/Commitment";
 import Guarantee from "@/components/Guarantee";
+import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 
@@ -39,6 +40,7 @@ function Index() {
       <Gallery />
       <Commitment />
       <Guarantee />
+      <Testimonials />
       <FAQ />
       <FinalCTA />
     </>
